@@ -37,7 +37,7 @@ def baseline(
 
     _init()
     state = _run_baseline(query)
-    console.print(Panel.fit(state.final_answer, title="Single-Agent Baseline"))
+    console.print(Panel.fit(state.final_answer or "", title="Single-Agent Baseline"))
 
 
 @app.command("multi-agent")
