@@ -1,6 +1,6 @@
 """Search client abstraction for ResearcherAgent."""
 
-from typing import Any
+from typing import Any, cast
 
 from multi_agent_research_lab.core.config import get_settings
 from multi_agent_research_lab.core.errors import AgentExecutionError
@@ -57,7 +57,7 @@ class SearchClient:
                 "Run `pip install -e \"[llm]\"` or install `openai`."
             ) from exc
 
-        return OpenAI(api_key=self.api_key)
+        return OpenAI(api_key=cast(str | None, self.api_key))
 
     def _extract_cited_documents(self, response: Any, max_results: int) -> list[SourceDocument]:
         documents: list[SourceDocument] = []

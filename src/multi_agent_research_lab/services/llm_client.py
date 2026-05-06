@@ -4,7 +4,7 @@ Production note: agents should depend on this interface instead of importing an 
 """
 
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, cast
 
 from multi_agent_research_lab.core.config import get_settings
 from multi_agent_research_lab.core.errors import AgentExecutionError
@@ -77,7 +77,7 @@ class LLMClient:
                 "Run `pip install -e \"[llm]\"` or install `openai`."
             ) from exc
 
-        return OpenAI(api_key=self.api_key)
+        return OpenAI(api_key=cast(str | None, self.api_key))
 
     def _extract_output_text(self, response: Any) -> str:
         parts: list[str] = []
