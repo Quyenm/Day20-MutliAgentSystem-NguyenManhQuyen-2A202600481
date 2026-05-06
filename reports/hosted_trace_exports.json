@@ -1,0 +1,34 @@
+[
+  {
+    "run_name": "baseline benchmark",
+    "provider": "langsmith",
+    "status": "skipped",
+    "message": "LANGSMITH_API_KEY is not configured",
+    "run_id": null,
+    "url": null
+  },
+  {
+    "run_name": "baseline benchmark",
+    "provider": "langfuse",
+    "status": "exported",
+    "message": "Exported to Langfuse",
+    "run_id": "b3813b9b1beb1ea1292317865b359b49",
+    "url": "https://cloud.langfuse.com/trace/b3813b9b1beb1ea1292317865b359b49"
+  },
+  {
+    "run_name": "multi-agent benchmark",
+    "provider": "langsmith",
+    "status": "skipped",
+    "message": "LANGSMITH_API_KEY is not configured",
+    "run_id": null,
+    "url": null
+  },
+  {
+    "run_name": "multi-agent benchmark",
+    "provider": "langfuse",
+    "status": "exported",
+    "message": "Exported to Langfuse",
+    "run_id": "a2762a67dfb58fd993b1f94c2f69ce52",
+    "url": "https://cloud.langfuse.com/trace/a2762a67dfb58fd993b1f94c2f69ce52"
+  }
+]

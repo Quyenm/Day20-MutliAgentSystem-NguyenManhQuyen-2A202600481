@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Multi-Agent Research Lab Demo</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="topbar" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Lab 20 localhost demo</p>
+          <h1 id="page-title">Multi-Agent Research Comparison</h1>
+        </div>
+        <div class="status-pill" id="connection-status">Ready</div>
+      </section>
+
+      <section class="control-panel" aria-label="Run comparison">
+        <label for="query-input">Research query</label>
+        <div class="query-row">
+          <textarea id="query-input" rows="3">What are current production guardrails for LLM agents?</textarea>
+          <div class="button-stack">
+            <button id="run-live" type="button">Run Comparison</button>
+            <button id="load-last" type="button" class="secondary">Load Last Run</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="progress-band" aria-label="Run progress">
+        <div class="step" data-step="baseline">Baseline</div>
+        <div class="step" data-step="researcher">Researcher</div>
+        <div class="step" data-step="analyst">Analyst</div>
+        <div class="step" data-step="writer">Writer</div>
+        <div class="step" data-step="report">Report</div>
+      </section>
+
+      <section class="metric-grid" aria-label="Benchmark metrics">
+        <article class="metric">
+          <span>Baseline latency</span>
+          <strong id="metric-baseline-latency">-</strong>
+        </article>
+        <article class="metric">
+          <span>Multi-agent latency</span>
+          <strong id="metric-multi-latency">-</strong>
+        </article>
+        <article class="metric">
+          <span>Citation coverage</span>
+          <strong id="metric-citation">-</strong>
+        </article>
+        <article class="metric">
+          <span>Sources found</span>
+          <strong id="metric-sources">-</strong>
+        </article>
+      </section>
+
+      <section class="comparison-grid" aria-label="Baseline and multi-agent answers">
+        <article class="run-panel" id="baseline-panel">
+          <div class="panel-header">
+            <h2>Baseline</h2>
+            <span id="baseline-route">direct</span>
+          </div>
+          <div class="answer" id="baseline-answer">Run a comparison to see the baseline answer.</div>
+        </article>
+        <article class="run-panel emphasized" id="multi-panel">
+          <div class="panel-header">
+            <h2>Multi-Agent</h2>
+            <span id="multi-route">researcher -> analyst -> writer -> done</span>
+          </div>
+          <div class="answer" id="multi-answer">Run a comparison to see the multi-agent answer.</div>
+        </article>
+      </section>
+
+      <section class="visual-grid">
+        <article class="wide-panel">
+          <div class="panel-header">
+            <h2>Flow Graph</h2>
+            <span>Baseline vs multi-agent orchestration</span>
+          </div>
+          <div class="flow-columns">
+            <div>
+              <h3>Baseline Flow</h3>
+              <div class="flow" id="baseline-flow"></div>
+            </div>
+            <div>
+              <h3>Multi-Agent Flow</h3>
+              <div class="flow" id="multi-flow"></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="wide-panel">
+          <div class="panel-header">
+            <h2>Tool Calls</h2>
+            <span>Model, search, and agent-level metadata</span>
+          </div>
+          <div class="tool-grid" id="tool-grid"></div>
+        </article>
+      </section>
+
+      <section class="evidence-grid">
+        <article class="wide-panel">
+          <div class="panel-header">
+            <h2>Sources</h2>
+            <span>OpenAI web search citations</span>
+          </div>
+          <div id="sources-list" class="sources-list"></div>
+        </article>
+        <article class="wide-panel">
+          <div class="panel-header">
+            <h2>Benchmark</h2>
+            <span>Report and Langfuse evidence</span>
+          </div>
+          <div id="artifact-links" class="artifact-links"></div>
+          <pre id="report-preview" class="report-preview">No report loaded yet.</pre>
+        </article>
+      </section>
+    </main>
+    <script src="/assets/app.js"></script>
+  </body>
+</html>
+
